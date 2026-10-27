@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app">
+    <h1>Mi lista de tareas</h1>
+    <p class="subtitulo">Agrega, edita y completa tus pendientes.</p>
+
+    <!-- Formulario para agregar tareas -->
+    <form id="formulario-tarea" class="formulario" novalidate>
+      <label for="entrada-tarea" class="sr-only">Nueva tarea</label>
+      <input type="text" id="entrada-tarea" placeholder="Escribe una tarea..." maxlength="100" autocomplete="off">
+      <button type="submit" id="boton-agregar">Agregar Tarea</button>
+    </form>
+
+    <!-- Mensajes de error -->
+    <p id="mensaje-error" class="mensaje-error" role="alert"></p>
+
+    <!-- Lista de tareas -->
+    <ul id="lista-tareas" class="lista"></ul>
+
+    <p id="mensaje-vacio" class="mensaje-vacio">Aún no tienes tareas. ¡Agrega la primera!</p>
+    <p id="contador" class="contador"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+/* ========== Variables ========== */
+:root {
+  --crema: #f6f0e6;
+  --arena: #e9dfce;
+  --linea: #d8cbb5;
+  --terracota: #b5472f;
+  --terracota-oscuro: #8f3321;
+  --salvia: #4f5d45;
+  --salvia-oscuro: #3b4733;
+  --carbon: #2b2520;
+  --gris: #6b5f55;
+  --blanco: #fffdf9;
+  --error: #b3261e;
+}
+
+/* ========== Estilos generales ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--crema);
+  color: var(--carbon);
+  line-height: 1.5;
+  padding: 40px 16px;
+}
+
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ========== Contenedor principal ========== */
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(43, 37, 32, 0.08);
+}
+
+.app h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 2rem;
+  color: var(--terracota);
+}
+
+.subtitulo {
+  color: var(--gris);
+  margin-bottom: 24px;
+}
+
+/* ========== Formulario ========== */
+.formulario {
+  display: flex;
+  gap: 10px;
+}
+
+.formulario input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--carbon);
+  background-color: var(--crema);
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+}
+
+.formulario input:focus,
+.input-edicion:focus {
+  outline: none;
+  border-color: var(--terracota);
+  box-shadow: 0 0 0 3px rgba(181, 71, 47, 0.2);
+}
+
+/* ========== Botones ========== */
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#boton-agregar {
+  background-color: var(--terracota);
+  color: var(--blanco);
+}
+
+#boton-agregar:hover {
+  background-color: var(--terracota-oscuro);
+}
+
+.btn-editar,
+.btn-guardar {
+  background-color: var(--salvia);
+  color: var(--blanco);
+}
+
+.btn-editar:hover,
+.btn-guardar:hover {
+  background-color: var(--salvia-oscuro);
+}
+
+.btn-eliminar {
+  background-color: transparent;
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.btn-eliminar:hover {
+  background-color: var(--error);
+  color: var(--blanco);
+}
+
+.btn-cancelar {
+  background-color: transparent;
+  color: var(--carbon);
+  border-color: var(--linea);
+}
+
+.btn-cancelar:hover {
+  background-color: var(--arena);
+}
+
+/* ========== Mensajes ========== */
+.mensaje-error {
+  min-height: 1.5em;
+  margin: 8px 0 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--error);
+}
+
+.mensaje-vacio {
+  text-align: center;
+  color: var(--gris);
+  padding: 20px 0;
+}
+
+.mensaje-vacio.oculto {
+  display: none;
+}
+
+.contador {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-top: 8px;
+}
+
+/* ========== Lista de tareas ========== */
+.lista {
+  list-style: none;
+}
+
+.tarea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background-color: var(--crema);
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+}
+
+.tarea .check {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--salvia);
+  cursor: pointer;
+}
+
+.tarea .texto {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tarea.completa .texto {
+  text-decoration: line-through;
+  color: var(--gris);
+}
+
+.acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.input-edicion {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--carbon);
+  background-color: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+}
+
+/* ========== Diseño responsivo ========== */
+@media (max-width: 600px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .app {
+    padding: 22px;
+  }
+
+  .app h1 {
+    font-size: 1.6rem;
+  }
+
+  .formulario {
+    flex-direction: column;
+  }
+
+  .tarea {
+    flex-wrap: wrap;
+  }
+
+  .input-edicion {
+    flex: 1 1 100%;
+  }
+
+  .acciones {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
